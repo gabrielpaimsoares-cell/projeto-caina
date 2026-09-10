@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Back-End - Comandos e Sintaxe</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f8;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        /* CABEÇALHO */
+
+        header {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        header h1 {
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 20px;
+        }
+
+        /* MENU */
+
+        nav {
+            background-color: #0b1319;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #00b4db;
+        }
+
+        /* SEÇÕES */
+
+        section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 50px 20px;
+        }
+
+        section h2 {
+            text-align: center;
+            color: #203a43;
+            margin-bottom: 30px;
+            font-size: 32px;
+        }
+
+        /* INÍCIO */
+
+        .inicio {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+        }
+
+        .inicio img {
+            width: 45%;
+            border-radius: 15px;
+        }
+
+        .inicio-texto {
+            width: 55%;
+        }
+
+        .inicio-texto h2 {
+            text-align: left;
+        }
+
+        /* BLOCO DE CÓDIGO (NOVO ESTILO) */
+
+        code {
+            background-color: #1e1e1e;
+            color: #4ec9b0;
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background-color: #1e1e1e;
+            color: #dcdcdc;
+            padding: 12px;
+            border-radius: 8px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.85em;
+            text-align: left;
+            overflow-x: auto;
+            margin-top: 10px;
+        }
+
+        /* CARDS */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: #203a43;
+            margin-bottom: 10px;
+        }
+
+        /* ATIVIDADES */
+
+        .atividade {
+            background-color: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 6px solid #00b4db;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        .atividade h3 {
+            color: #203a43;
+            margin-bottom: 10px;
+        }
+
+        /* ÁREA DO PROJETO */
+
+        .projeto {
+            background: linear-gradient(135deg, #0b1319, #203a43);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .projeto h2 {
+            color: white;
+        }
+
+        .botao {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: #00b4db;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .botao:hover {
+            background-color: #0083b0;
+        }
+
+        /* RODAPÉ */
+
+        footer {
+            background-color: #0b1319;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 30px;
+        }
+
+        /* RESPONSIVIDADE */
+
+        @media (max-width: 700px) {
+
+            header h1 {
+                font-size: 32px;
+            }
+
+            nav a {
+                display: block;
+                margin: 8px;
+            }
+
+            .inicio {
+                flex-direction: column;
+            }
+
+            .inicio img,
+            .inicio-texto {
+                width: 100%;
+            }
+
+            .inicio-texto h2 {
+                text-align: center;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+
+    <header>
+
+        <h1>⚙️ Guia de Comandos Back-End</h1>
+
+        <p>2º Ano do Ensino Médio</p>
+
+        <p>
+            Comandos de Terminal, SQL, Métodos HTTP e Módulos do Node.js.
+        </p>
+
+    </header>
+
+
+    <!-- MENU -->
+
+    <nav>
+
+        <a href="#inicio">Início</a>
+
+        <a href="#terminal">Terminal / NPM</a>
+
+        <a href="#sql">Comandos SQL</a>
+
+        <a href="#http">Rotas HTTP</a>
+
+        <a href="#atividades">Desafios</a>
+
+        <a href="#projeto">Script Final</a>
+
+    </nav>
+
+
+    <!-- INÍCIO -->
+
+    <section id="inicio">
+
+        <div class="inicio">
+
+            <img
+                src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31"
+                alt="Servidores e infraestrutura de rede"
+            >
+
+            <div class="inicio-texto">
+
+                <h2>💻 Dominando as Linhas de Comando</h2>
+
+                <p>
+                    No desenvolvimento <strong>Back-End</strong>, interagimos diretamente com o servidor
+                    por meio do terminal, executando scripts e enviando queries para o banco de dados.
+                </p>
+
+                <br>
+
+                <p>
+                    Abaixo você encontra a referência completa dos principais comandos utilizados nas aulas:
+                </p>
+
+                <pre><code>npm init -y
+npm install express
+SELECT * FROM usuarios;</code></pre>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- TERMINAL / NPM -->
+
+    <section id="terminal">
+
+        <h2>🛠️ Comandos de Terminal & NPM</h2>
+
+        <div class="cards">
+
+
+            <div class="card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1627398242454-45a1465c2479"
+                    alt="Código em Node"
+                >
+
+                <h3>🚀 Iniciar Projeto</h3>
+
+                <p>Cria o arquivo <code>package.json</code> padrão no projeto.</p>
+
+                <pre><code>npm init -y</code></pre>
+
+            </div>
+
+
+            <div class="card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d"
+                    alt="Instalação de pacotes"
+                >
+
+                <h3>📦 Instalar Pacote</h3>
+
+                <p>Instala dependências como o <code>express</code> ou <code>dotenv</code>.</p>
+
+                <pre><code>npm install express</code></pre>
+
+            </div>
+
+
+            <div class="card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1516116216624-53e697fedbea"
+                    alt="Execução de scripts"
+                >
+
+                <h3>⚡ Executar Servidor</h3>
+
+                <p>Inicia a aplicação rodando o arquivo principal do servidor.</p>
+
+                <pre><code>node server.js</code></pre>
+
+            </div>
+
+
+            <div class="card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb"
+                    alt="Modo de desenvolvimento"
+                >
+
+                <h3>🔄 Modo Dev (Nodemon)</h3>
+
+                <p>Reinicia o servidor automaticamente a cada alteração.</p>
+
+                <pre><code>npx nodemon index.js</code></pre>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- COMANDOS SQL -->
+
+    <section id="sql">
+
+        <h2>🗄️ Comandos SQL (Banco de Dados)</h2>
+
+
+        <div class="cards">
+
+
+            <div class="card">
+
+                <h3>01</h3>
+
+                <h3>CREATE TABLE</h3>
+
+                <p>Cria uma nova tabela no banco de dados.</p>
+
+                <pre><code>CREATE TABLE alunos (
+  id INT PRIMARY KEY,
+  nome VARCHAR(100)
+);</code></pre>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>02</h3>
+
+                <h3>INSERT INTO</h3>
+
+                <p>Insere novos registros na tabela.</p>
+
+                <pre><code>INSERT INTO alunos
+(id, nome)
+VALUES (1, 'Maria');</code></pre>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>03</h3>
+
+                <h3>SELECT</h3>
+
+                <p>Busca e filtra dados cadastrados.</p>
+
+                <pre><code>SELECT * FROM alunos
+WHERE id = 1;</code></pre>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>04</h3>
+
+                <h3>UPDATE</h3>
+
+                <p>Atualiza informações existentes.</p>
+
+                <pre><code>UPDATE alunos
+SET nome = 'Ana'
+WHERE id = 1;</code></pre>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>05</h3>
+
+                <h3>DELETE</h3>
+
+                <p>Remove um registro específico do banco.</p>
+
+                <pre><code>DELETE FROM alunos
+WHERE id = 1;</code></pre>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>06</h3>
+
+                <h3>DROP TABLE</h3>
+
+                <p>Exclui permanentemente uma tabela inteira.</p>
+
+                <pre><code>DROP TABLE alunos;</code></pre>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- MÉTODOS HTTP -->
+
+    <section id="http">
+
+        <h2>🔌 Métodos e Rotas HTTP (Express)</h2>
+
+
+        <div class="atividade">
+
+            <h3>🟢 GET – Leitura e Busca</h3>
+
+            <p>Utilizado para buscar informações do servidor sem alterar nada.</p>
+
+            <pre><code>app.get('/usuarios', (req, res) => {
+    res.json({ mensagem: 'Lista de usuários' });
+});</code></pre>
+
+        </div>
+
+
+        <div class="atividade">
+
+            <h3>🟡 POST – Criação de Registros</h3>
+
+            <p>Utilizado para enviar dados do cliente e criar algo no servidor.</p>
+
+            <pre><code>app.post('/usuarios', (req, res) => {
+    const novoUsuario = req.body;
+    res.status(201).json(novoUsuario);
+});</code></pre>
+
+        </div>
+
+
+        <div class="atividade">
+
+            <h3>🔵 PUT – Atualização Total</h3>
+
+            <p>Substitui um registro inteiro pelos novos dados enviados.</p>
+
+            <pre><code>app.put('/usuarios/:id', (req, res) => {
+    const { id } = req.params;
+    res.send(`Usuário ${id} atualizado.`);
+});</code></pre>
+
+        </div>
+
+
+        <div class="atividade">
+
+            <h3>🔴 DELETE – Remoção</h3>
+
+            <p>Exclui um determinado recurso identificado por parâmetro na URL.</p>
+
+            <pre><code>app.delete('/usuarios/:id', (req, res) => {
+    const { id } = req.params;
+    res.send(`Usuário ${id} deletado.`);
+});</code></pre>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJETO FINAL -->
+
+    <section id="projeto">
+
+        <div class="projeto">
+
+            <h2>🚀 Estrutura Completa de um Servidor Express</h2>
+
+            <p>
+                Abaixo está a sintaxe base necessária para rodar uma API funcional:
+            </p>
+
+            <pre><code>const express = require('express');
+const app = express();
+
+app.use(express.json());
+
+app.get('/', (req, res) => {
+    res.send('Servidor Back-End online! ⚙️');
+});
+
+app.listen(3000, () => {
+    console.log('Servidor rodando em http://localhost:3000');
+});</code></pre>
+
+            <a href="#inicio" class="botao">
+                Voltar ao topo
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- RODAPÉ -->
+
+    <footer>
+
+        <p>
+            ⚙️ Back-End – Comandos e Referências Básicas
+        </p>
+
+        <p>
+            Construindo a lógica e a estrutura que sustentam a Web.
+        </p>
+
+        <br>
+
+        <p>
+            © 2026 - Projeto Educacional
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
